@@ -52,6 +52,7 @@ namespace kanagawa
             this.treeCMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newMissionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newWaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.missionTab = new System.Windows.Forms.TabPage();
             this.menuBar.SuspendLayout();
             this.treeGb.SuspendLayout();
             this.editTabs.SuspendLayout();
@@ -150,6 +151,7 @@ namespace kanagawa
             // 
             this.editTabs.Controls.Add(this.squadTab);
             this.editTabs.Controls.Add(this.robotTab);
+            this.editTabs.Controls.Add(this.missionTab);
             this.editTabs.Location = new System.Drawing.Point(298, 31);
             this.editTabs.Name = "editTabs";
             this.editTabs.SelectedIndex = 0;
@@ -207,14 +209,22 @@ namespace kanagawa
             // newMissionToolStripMenuItem
             // 
             this.newMissionToolStripMenuItem.Name = "newMissionToolStripMenuItem";
-            this.newMissionToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.newMissionToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
             this.newMissionToolStripMenuItem.Text = "New Mission";
             // 
             // newWaveToolStripMenuItem
             // 
             this.newWaveToolStripMenuItem.Name = "newWaveToolStripMenuItem";
-            this.newWaveToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.newWaveToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
             this.newWaveToolStripMenuItem.Text = "New Wave";
+            // 
+            // missionTab
+            // 
+            this.missionTab.Location = new System.Drawing.Point(4, 25);
+            this.missionTab.Name = "missionTab";
+            this.missionTab.Size = new System.Drawing.Size(1025, 516);
+            this.missionTab.TabIndex = 2;
+            this.missionTab.Text = "Mission Editor";
             // 
             // Main
             // 
@@ -260,6 +270,7 @@ namespace kanagawa
         private ContextMenuStrip treeCMenu;
         private ToolStripMenuItem newMissionToolStripMenuItem;
         private ToolStripMenuItem newWaveToolStripMenuItem;
+        private TabPage missionTab;
     }
 }
 

@@ -18,10 +18,6 @@ namespace kanagawa
         public Main()
         {
             InitializeComponent();
-
-            //Add the root popfile node to the tree.
-            tree.Nodes.Add("asdasdtest");
-            tree.Nodes[0].Nodes.Add("testagain");
         }
 
         /// <summary>
