@@ -24,7 +24,17 @@ namespace kanagawa.Serialization
     /// <summary>
     /// Whether the property value should use quotes (in the popfile).
     /// </summary>
-    public class PopUsesQuotes : Attribute { }
+    public class PopUsesQuotes : Attribute 
+    { 
+        public PopUsesQuotes(bool onName = false, bool onValue = true)
+        {
+            OnName = onName;
+            OnValue = onValue;
+        }
+
+        public bool OnName;
+        public bool OnValue;
+    }
 
     /// <summary>
     /// Expands a List<string> to a list of properties with the same name.
@@ -32,15 +42,15 @@ namespace kanagawa.Serialization
     public class PopExpandList : Attribute { }
 
     /// <summary>
-    /// Serializes the given property only given that the function passed returns true.
+    /// Serializes the given property only given that the function name passed returns true.
     /// </summary>
     public class PopSerializeOnCondition : Attribute
     {
-        public PopSerializeOnCondition(Func<bool> condition)
+        public PopSerializeOnCondition(string condition)
         {
-            Condition = condition;
+            FuncName = condition;
         }
 
-        public Func<bool> Condition;
+        public string FuncName;
     }
 }

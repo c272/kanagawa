@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Bot.cs" />
+    <Compile Include="Data\IOOutput.cs" />
+    <Compile Include="Data\ItemAttributes.cs" />
     <Compile Include="Data\Mission.cs" />
+    <Compile Include="Data\Wave.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -66,6 +66,7 @@ namespace kanagawa.Data
         Spy,
         Sniper,
         DestroySentries,
-        Engineer
+        Engineer,
+        SeekAndDestroy
     }
 }
