@@ -22,27 +22,11 @@ namespace kanagawa
         {
             wave = toEdit;
 
-            //Update fields to match new wave.
-            waveCheckpointCb.Checked = wave.SetCheckpoint;
-            waveSoundTxt.Text = wave.Sound;
-        }
-
-        /// <summary>
-        /// Triggered when the wave sound text box is edited.
-        /// </summary>
-        private void waveSoundChanged(object sender, EventArgs e)
-        {
-            //Edit data bindings.
-            wave.Sound = waveSoundTxt.Text;
-        }
-
-        /// <summary>
-        /// Triggered when the wave checkpoint checkbox is edited.
-        /// </summary>
-        private void waveCheckpointChanged(object sender, EventArgs e)
-        {
-            //Edit data bindings.
-            wave.SetCheckpoint = waveCheckpointCb.Checked;
+            //Update field bindings.
+            waveSoundTxt.DataBindings.Clear();
+            waveSoundTxt.DataBindings.Add("Text", wave, "Sound");
+            waveCheckpointCb.DataBindings.Clear();
+            waveCheckpointCb.DataBindings.Add("Checked", wave, "SetCheckpoint");
         }
     }
 }

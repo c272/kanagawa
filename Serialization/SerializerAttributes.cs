@@ -42,6 +42,11 @@ namespace kanagawa.Serialization
     public class PopExpandList : Attribute { }
 
     /// <summary>
+    /// Serializes the property only if it's a number, and the value is non-zero.
+    /// </summary>
+    public class PopSerializeIfNonZero : Attribute { }
+
+    /// <summary>
     /// Serializes the given property only given that the function name passed returns true.
     /// </summary>
     public class PopSerializeOnCondition : Attribute

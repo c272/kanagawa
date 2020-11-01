@@ -45,6 +45,37 @@ namespace kanagawa
             this.treeGb = new System.Windows.Forms.GroupBox();
             this.editTabs = new System.Windows.Forms.TabControl();
             this.squadTab = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.squadNameTxt = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.squadCurrencyNum = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.squadFinishedSnd = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.squadSpawnLastSnd = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.squadSpawnSnd = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.squadStartSnd = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.squadWaitTillDeath = new System.Windows.Forms.TextBox();
+            this.squadTotalCountNum = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.squadSpawnDelayNum = new System.Windows.Forms.NumericUpDown();
+            this.squadWaitTillSpawn = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.squadStartDelayNum = new System.Windows.Forms.NumericUpDown();
+            this.squadMaxActiveNum = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.squadSpawnCountNum = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.squadTitle = new System.Windows.Forms.Label();
             this.robotTab = new System.Windows.Forms.TabPage();
             this.missionTab = new System.Windows.Forms.TabPage();
             this.waveTab = new System.Windows.Forms.TabPage();
@@ -62,6 +93,16 @@ namespace kanagawa
             this.menuBar.SuspendLayout();
             this.treeGb.SuspendLayout();
             this.editTabs.SuspendLayout();
+            this.squadTab.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.squadCurrencyNum)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.squadTotalCountNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squadSpawnDelayNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squadStartDelayNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squadMaxActiveNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squadSpawnCountNum)).BeginInit();
             this.waveTab.SuspendLayout();
             this.treeNodeCMenu.SuspendLayout();
             this.treeCMenu.SuspendLayout();
@@ -141,6 +182,7 @@ namespace kanagawa
             this.tree.Name = "tree";
             this.tree.Size = new System.Drawing.Size(274, 527);
             this.tree.TabIndex = 1;
+            this.tree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.nodeSelectChanged);
             this.tree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeItemClicked);
             this.tree.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeClicked);
             // 
@@ -168,12 +210,335 @@ namespace kanagawa
             // 
             // squadTab
             // 
+            this.squadTab.Controls.Add(this.groupBox3);
+            this.squadTab.Controls.Add(this.groupBox2);
+            this.squadTab.Controls.Add(this.groupBox1);
+            this.squadTab.Controls.Add(this.label5);
+            this.squadTab.Controls.Add(this.squadTitle);
             this.squadTab.Location = new System.Drawing.Point(4, 25);
             this.squadTab.Name = "squadTab";
             this.squadTab.Padding = new System.Windows.Forms.Padding(3);
             this.squadTab.Size = new System.Drawing.Size(1025, 516);
             this.squadTab.TabIndex = 0;
             this.squadTab.Text = "Squad Editor";
+            this.squadTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.squadNameTxt);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.squadCurrencyNum);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Location = new System.Drawing.Point(23, 96);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(304, 138);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "General Settings";
+            // 
+            // squadNameTxt
+            // 
+            this.squadNameTxt.Location = new System.Drawing.Point(18, 97);
+            this.squadNameTxt.Name = "squadNameTxt";
+            this.squadNameTxt.Size = new System.Drawing.Size(262, 22);
+            this.squadNameTxt.TabIndex = 9;
+            this.squadNameTxt.TextChanged += new System.EventHandler(this.squadNameChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 78);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(45, 17);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Name";
+            // 
+            // squadCurrencyNum
+            // 
+            this.squadCurrencyNum.Location = new System.Drawing.Point(18, 47);
+            this.squadCurrencyNum.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.squadCurrencyNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.squadCurrencyNum.Name = "squadCurrencyNum";
+            this.squadCurrencyNum.Size = new System.Drawing.Size(262, 22);
+            this.squadCurrencyNum.TabIndex = 13;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(15, 27);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(101, 17);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Total Currency";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.squadFinishedSnd);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.squadSpawnLastSnd);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.squadSpawnSnd);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.squadStartSnd);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Location = new System.Drawing.Point(23, 240);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(304, 237);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Sound Settings";
+            // 
+            // squadFinishedSnd
+            // 
+            this.squadFinishedSnd.Location = new System.Drawing.Point(16, 196);
+            this.squadFinishedSnd.Name = "squadFinishedSnd";
+            this.squadFinishedSnd.Size = new System.Drawing.Size(224, 22);
+            this.squadFinishedSnd.TabIndex = 7;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(13, 177);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(151, 17);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Squad Finished Sound";
+            // 
+            // squadSpawnLastSnd
+            // 
+            this.squadSpawnLastSnd.Location = new System.Drawing.Point(16, 144);
+            this.squadSpawnLastSnd.Name = "squadSpawnLastSnd";
+            this.squadSpawnLastSnd.Size = new System.Drawing.Size(224, 22);
+            this.squadSpawnLastSnd.TabIndex = 5;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(13, 125);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(126, 17);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Last Spawn Sound";
+            // 
+            // squadSpawnSnd
+            // 
+            this.squadSpawnSnd.Location = new System.Drawing.Point(16, 93);
+            this.squadSpawnSnd.Name = "squadSpawnSnd";
+            this.squadSpawnSnd.Size = new System.Drawing.Size(224, 22);
+            this.squadSpawnSnd.TabIndex = 3;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(13, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(126, 17);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "First Spawn Sound";
+            // 
+            // squadStartSnd
+            // 
+            this.squadStartSnd.Location = new System.Drawing.Point(16, 44);
+            this.squadStartSnd.Name = "squadStartSnd";
+            this.squadStartSnd.Size = new System.Drawing.Size(224, 22);
+            this.squadStartSnd.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(13, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(128, 17);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Squad Start Sound";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.squadWaitTillDeath);
+            this.groupBox1.Controls.Add(this.squadTotalCountNum);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.squadSpawnDelayNum);
+            this.groupBox1.Controls.Add(this.squadWaitTillSpawn);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.squadStartDelayNum);
+            this.groupBox1.Controls.Add(this.squadMaxActiveNum);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.squadSpawnCountNum);
+            this.groupBox1.Location = new System.Drawing.Point(333, 96);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(304, 286);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Spawning Robots";
+            // 
+            // squadWaitTillDeath
+            // 
+            this.squadWaitTillDeath.Location = new System.Drawing.Point(18, 251);
+            this.squadWaitTillDeath.Name = "squadWaitTillDeath";
+            this.squadWaitTillDeath.Size = new System.Drawing.Size(224, 22);
+            this.squadWaitTillDeath.TabIndex = 11;
+            // 
+            // squadTotalCountNum
+            // 
+            this.squadTotalCountNum.Location = new System.Drawing.Point(18, 45);
+            this.squadTotalCountNum.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
+            this.squadTotalCountNum.Name = "squadTotalCountNum";
+            this.squadTotalCountNum.Size = new System.Drawing.Size(120, 22);
+            this.squadTotalCountNum.TabIndex = 3;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 232);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(169, 17);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "Wait for this squad to die:";
+            // 
+            // squadSpawnDelayNum
+            // 
+            this.squadSpawnDelayNum.Location = new System.Drawing.Point(18, 145);
+            this.squadSpawnDelayNum.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
+            this.squadSpawnDelayNum.Name = "squadSpawnDelayNum";
+            this.squadSpawnDelayNum.Size = new System.Drawing.Size(120, 22);
+            this.squadSpawnDelayNum.TabIndex = 11;
+            // 
+            // squadWaitTillSpawn
+            // 
+            this.squadWaitTillSpawn.Location = new System.Drawing.Point(18, 199);
+            this.squadWaitTillSpawn.Name = "squadWaitTillSpawn";
+            this.squadWaitTillSpawn.Size = new System.Drawing.Size(224, 22);
+            this.squadWaitTillSpawn.TabIndex = 9;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 180);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(190, 17);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Wait for this squad to spawn:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 17);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Total Count";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(15, 125);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 17);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Spawn Delay: ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(157, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 17);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Max Active:";
+            // 
+            // squadStartDelayNum
+            // 
+            this.squadStartDelayNum.Location = new System.Drawing.Point(160, 94);
+            this.squadStartDelayNum.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
+            this.squadStartDelayNum.Name = "squadStartDelayNum";
+            this.squadStartDelayNum.Size = new System.Drawing.Size(120, 22);
+            this.squadStartDelayNum.TabIndex = 9;
+            // 
+            // squadMaxActiveNum
+            // 
+            this.squadMaxActiveNum.Location = new System.Drawing.Point(160, 45);
+            this.squadMaxActiveNum.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
+            this.squadMaxActiveNum.Name = "squadMaxActiveNum";
+            this.squadMaxActiveNum.Size = new System.Drawing.Size(120, 22);
+            this.squadMaxActiveNum.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(157, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 17);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Start Delay:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 74);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 17);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Spawn Count:";
+            // 
+            // squadSpawnCountNum
+            // 
+            this.squadSpawnCountNum.Location = new System.Drawing.Point(18, 94);
+            this.squadSpawnCountNum.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
+            this.squadSpawnCountNum.Name = "squadSpawnCountNum";
+            this.squadSpawnCountNum.Size = new System.Drawing.Size(120, 22);
+            this.squadSpawnCountNum.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(553, 17);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Configure top-level settings for your squad here. Bot-specific settings are not i" +
+    "ncluded.";
+            // 
+            // squadTitle
+            // 
+            this.squadTitle.AutoSize = true;
+            this.squadTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.squadTitle.Location = new System.Drawing.Point(14, 17);
+            this.squadTitle.Name = "squadTitle";
+            this.squadTitle.Size = new System.Drawing.Size(446, 38);
+            this.squadTitle.TabIndex = 0;
+            this.squadTitle.Text = "Editing Squad \"New Squad\"";
             // 
             // robotTab
             // 
@@ -183,14 +548,17 @@ namespace kanagawa
             this.robotTab.Size = new System.Drawing.Size(1025, 516);
             this.robotTab.TabIndex = 1;
             this.robotTab.Text = "Robot Editor";
+            this.robotTab.UseVisualStyleBackColor = true;
             // 
             // missionTab
             // 
             this.missionTab.Location = new System.Drawing.Point(4, 25);
             this.missionTab.Name = "missionTab";
+            this.missionTab.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.missionTab.Size = new System.Drawing.Size(1025, 516);
             this.missionTab.TabIndex = 2;
             this.missionTab.Text = "Mission Editor";
+            this.missionTab.UseVisualStyleBackColor = true;
             // 
             // waveTab
             // 
@@ -210,31 +578,29 @@ namespace kanagawa
             // 
             this.waveCheckpointCb.AutoSize = true;
             this.waveCheckpointCb.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.waveCheckpointCb.Location = new System.Drawing.Point(23, 125);
+            this.waveCheckpointCb.Location = new System.Drawing.Point(26, 140);
             this.waveCheckpointCb.Name = "waveCheckpointCb";
             this.waveCheckpointCb.Size = new System.Drawing.Size(108, 21);
             this.waveCheckpointCb.TabIndex = 5;
             this.waveCheckpointCb.Text = "Checkpoint?";
             this.waveCheckpointCb.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.waveCheckpointCb.UseVisualStyleBackColor = true;
-            this.waveCheckpointCb.CheckedChanged += new System.EventHandler(this.waveCheckpointChanged);
             // 
             // waveSoundTxt
             // 
-            this.waveSoundTxt.Location = new System.Drawing.Point(152, 96);
+            this.waveSoundTxt.Location = new System.Drawing.Point(27, 112);
             this.waveSoundTxt.Name = "waveSoundTxt";
             this.waveSoundTxt.Size = new System.Drawing.Size(210, 22);
             this.waveSoundTxt.TabIndex = 3;
-            this.waveSoundTxt.TextChanged += new System.EventHandler(this.waveSoundChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 97);
+            this.label3.Location = new System.Drawing.Point(24, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 17);
+            this.label3.Size = new System.Drawing.Size(123, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Wave Start Sound: ";
+            this.label3.Text = "Wave Start Sound";
             // 
             // label2
             // 
@@ -262,19 +628,19 @@ namespace kanagawa
             this.addChildBtn,
             this.deleteBtn});
             this.treeNodeCMenu.Name = "treeNodeCMenu";
-            this.treeNodeCMenu.Size = new System.Drawing.Size(211, 80);
+            this.treeNodeCMenu.Size = new System.Drawing.Size(145, 52);
             this.treeNodeCMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.treeNodeCClicked);
             // 
             // addChildBtn
             // 
             this.addChildBtn.Name = "addChildBtn";
-            this.addChildBtn.Size = new System.Drawing.Size(210, 24);
+            this.addChildBtn.Size = new System.Drawing.Size(144, 24);
             this.addChildBtn.Text = "Add Child";
             // 
             // deleteBtn
             // 
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(210, 24);
+            this.deleteBtn.Size = new System.Drawing.Size(144, 24);
             this.deleteBtn.Text = "Delete";
             // 
             // treeCMenu
@@ -314,6 +680,20 @@ namespace kanagawa
             this.menuBar.PerformLayout();
             this.treeGb.ResumeLayout(false);
             this.editTabs.ResumeLayout(false);
+            this.squadTab.ResumeLayout(false);
+            this.squadTab.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.squadCurrencyNum)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.squadTotalCountNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squadSpawnDelayNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squadStartDelayNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squadMaxActiveNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squadSpawnCountNum)).EndInit();
             this.waveTab.ResumeLayout(false);
             this.waveTab.PerformLayout();
             this.treeNodeCMenu.ResumeLayout(false);
@@ -352,6 +732,37 @@ namespace kanagawa
         private Label label3;
         private Label label2;
         private Label label1;
+        private Label label5;
+        private Label squadTitle;
+        private NumericUpDown squadTotalCountNum;
+        private Label label6;
+        private Label label7;
+        private NumericUpDown squadSpawnCountNum;
+        private Label label8;
+        private NumericUpDown squadStartDelayNum;
+        private Label label9;
+        private NumericUpDown squadSpawnDelayNum;
+        private Label label10;
+        private GroupBox groupBox2;
+        private Label label11;
+        private GroupBox groupBox1;
+        private TextBox squadFinishedSnd;
+        private Label label14;
+        private TextBox squadSpawnLastSnd;
+        private Label label13;
+        private TextBox squadSpawnSnd;
+        private Label label12;
+        private GroupBox groupBox3;
+        private NumericUpDown squadCurrencyNum;
+        private Label label15;
+        private TextBox squadNameTxt;
+        private Label label16;
+        private TextBox squadWaitTillDeath;
+        private Label label17;
+        private TextBox squadWaitTillSpawn;
+        private Label label18;
+        private TextBox squadStartSnd;
+        private NumericUpDown squadMaxActiveNum;
     }
 }
 

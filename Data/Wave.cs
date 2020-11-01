@@ -10,8 +10,13 @@ namespace kanagawa.Data
     /// <summary>
     /// Represents a single wave of robots in Kanagawa.
     /// </summary>
-    class Wave
+    class Wave : Equatable
     {
+        /// <summary>
+        /// The squads contained in this wave.
+        /// </summary>
+        public List<Squad> Squads { get; set; } = new List<Squad>();
+
         /// <summary>
         /// The entity output that runs at the start of this wave.
         /// </summary>
@@ -41,7 +46,7 @@ namespace kanagawa.Data
         /// <summary>
         /// The sound to make when the wave begins.
         /// </summary>
-        public string Sound = null;
+        public string Sound { get; set; } = "";
 
         /// <summary>
         /// I have no idea what this does.

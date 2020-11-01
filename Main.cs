@@ -31,45 +31,62 @@ namespace kanagawa
         private void treeItemClicked(object sender, TreeNodeMouseClickEventArgs e)
         {
             //Is it a right click?
-            if (e.Button == MouseButtons.Right)
+            if (e.Button != MouseButtons.Right) { return; }
+
+            //Show the context menu, select the node.
+            tree.SelectedNode = e.Node;
+
+            //What type is the selected node? Change based on type.
+            if (e.Node.Tag is Wave)
             {
-                //Show the context menu, select the node.
-                tree.SelectedNode = e.Node;
+                treeNodeCMenu.Items[0].Enabled = true;
+                treeNodeCMenu.Items[0].Text = "Add Squad";
+            }
+            else if (e.Node.Tag is Squad)
+            {
+                treeNodeCMenu.Items[0].Enabled = true;
+                treeNodeCMenu.Items[0].Text = "Add Bot";
+            }
+            else if (e.Node.Tag is Bot)
+            {
+                treeNodeCMenu.Items[0].Enabled = false;
+            }
+            else
+            {
+                //Unknown.
+                treeNodeCMenu.Items[0].Enabled = true;
+                treeNodeCMenu.Items[0].Text = "Add Child";
+            }
 
-                //What type is the selected node? Change based on type.
-                if (e.Node.Tag is Wave)
-                {
-                    treeNodeCMenu.Items[0].Enabled = true;
-                    treeNodeCMenu.Items[0].Text = "Add Squad";
-                }
-                else if (e.Node.Tag is Squad)
-                {
-                    treeNodeCMenu.Items[0].Enabled = true;
-                    treeNodeCMenu.Items[0].Text = "Add Bot";
-                }
-                else if (e.Node.Tag is Bot)
-                {
-                    treeNodeCMenu.Items[0].Enabled = false;
-                }
-                else
-                {
-                    //Unknown.
-                    treeNodeCMenu.Items[0].Enabled = true;
-                    treeNodeCMenu.Items[0].Text = "Add Child";
-                }
+            treeNodeCMenu.Show(tree, e.Location);
+        }
 
-                treeNodeCMenu.Show(tree, e.Location);
+        /// <summary>
+        /// Triggered when the selected node is changed in any way.
+        /// </summary>
+        private void nodeSelectChanged(object sender, TreeViewEventArgs e)
+        {
+            //If the selected node is nothing, ignore and disable.
+            if (tree.SelectedNode == null)
+            {
+                editTabs.Enabled = false;
                 return;
             }
 
-            //Not a right click, new node selected. What type is the tag?
+            //New node selected. What type is the tag?
             editTabs.Enabled = true;
+            editTabs.TabPages.Clear();
             if (e.Node.Tag is Wave)
             {
                 //Wave, enable and update the wave editor.
-                editTabs.TabPages.Clear();
                 editTabs.TabPages.Add(waveTab);
                 UpdateWave((Wave)e.Node.Tag);
+            }
+            else if (e.Node.Tag is Squad)
+            {
+                //Squad, enable and update.
+                editTabs.TabPages.Add(squadTab);
+                UpdateSquad((Squad)e.Node.Tag);
             }
         }
 
@@ -113,9 +130,48 @@ namespace kanagawa
         private void treeNodeCClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             //What node is being right clicked?
+
+            //wave
             if (tree.SelectedNode.Tag is Wave)
             {
+                //Trying to remove or add child?
+                if (e.ClickedItem.Text == "Add Squad")
+                {
+                    var squad = new Squad();
+                    ((Wave)tree.SelectedNode.Tag).Squads.Add(squad);
+                    tree.SelectedNode.Nodes.Add(new TreeNode()
+                    {
+                        Text = squad.Name,
+                        Tag = squad
+                    });
+                }
+                else if (e.ClickedItem.Text == "Delete")
+                {
+                    pop.Waves.Remove((Wave)tree.SelectedNode.Tag);
+                    tree.Nodes.Remove(tree.SelectedNode);
+                }
+            }
 
+            //squad
+            else if (tree.SelectedNode.Tag is Squad)
+            {
+                //Squad node being right clicked, check if adding or removing.
+                if (e.ClickedItem.Text == "Add Bot")
+                {
+                    var bot = new Bot();
+                    ((Squad)tree.SelectedNode.Tag).Robots.Add(bot);
+                    tree.SelectedNode.Nodes.Add(new TreeNode()
+                    {
+                        Text = bot.Name,
+                        Tag = bot
+                    });
+                }
+                else if (e.ClickedItem.Text == "Delete")
+                {
+                    //get parent wave node and remove the squad from it
+                    ((Wave)tree.SelectedNode.Parent.Tag).Squads.Remove((Squad)tree.SelectedNode.Tag);
+                    tree.Nodes.Remove(tree.SelectedNode);
+                }
             }
         }
     }
