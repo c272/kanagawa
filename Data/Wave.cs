@@ -38,6 +38,14 @@ namespace kanagawa.Data
         [PopName("Checkpoint")]
         public bool SetCheckpoint { get; set; } = true;
 
+        /// <summary>
+        /// The sound to make when the wave begins.
+        /// </summary>
+        public string Sound = null;
 
+        /// <summary>
+        /// I have no idea what this does.
+        /// </summary>
+        //public bool WaitWhenDone = true;
     }
 }

@@ -37,7 +37,7 @@ namespace kanagawa.Serialization
     }
 
     /// <summary>
-    /// Expands a List<string> to a list of properties with the same name.
+    /// Expands a List<T> to a list of properties with the same name/type
     /// </summary>
     public class PopExpandList : Attribute { }
 
