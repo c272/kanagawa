@@ -51,8 +51,12 @@
     <Compile Include="Data\ItemAttributes.cs" />
     <Compile Include="Data\Mission.cs" />
     <Compile Include="Data\Population.cs" />
+    <Compile Include="Data\Squad.cs" />
     <Compile Include="Data\Templates.cs" />
     <Compile Include="Data\Wave.cs" />
+    <Compile Include="Forms\WaveEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

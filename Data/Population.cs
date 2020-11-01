@@ -16,13 +16,13 @@ namespace kanagawa.Data
         /// List of all missions occuring during the game.
         /// </summary>
         [PopExpandList]
-        public List<Mission> Missions { get; set; }
+        public List<Mission> Missions { get; set; } = new List<Mission>();
 
         /// <summary>
         /// List of all waves occuring during the game.
         /// </summary>
         [PopExpandList]
-        public List<Wave> Waves { get; set; }
+        public List<Wave> Waves { get; set; } = new List<Wave>();
 
         /// <summary>
         /// A list of available templates from the parsed population file.

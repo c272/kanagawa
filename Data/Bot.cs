@@ -45,11 +45,7 @@ namespace kanagawa.Data
         /// <summary>
         /// The template name to use as a base.
         /// </summary>
-        [PopSerializeOnCondition("TemplateUsed")]
         public string Template = null;
-        public bool TemplateUsed() { return Template == null || Template == ""; }
-
-
     }
 
     /// <summary>
